@@ -1,9 +1,13 @@
 const express=require("express")
 const app=express()
-app.use(express.static("public"))
+
+const path=require("path")
+const library=path.join(__dirname,'/public')
+
+app.use(express.static(library))
 const PORT=process.env.PORT || 8000
 app.use('/',(req,res)=>{
-    res.sendFile("C:/Users/91760/OneDrive/Desktop/WordPlay/public/word.html")
+    res.sendFile(`${library}/word.html`)
 })
 app.listen(PORT,()=>{
 console.log("Port started at 8000")
