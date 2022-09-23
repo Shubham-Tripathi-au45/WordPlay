@@ -97,7 +97,7 @@ function processInput(e) {
             let currTile = document.getElementById(row.toString() + '-' + col.toString());
             if (currTile.innerText == "") {
                 currTile.innerText = e.code[3];
-                console.log(currTile)
+                // console.log(currTile)
                 col += 1;
             }
         }
@@ -116,7 +116,8 @@ function processInput(e) {
 
     if (!gameOver && row == height) {
         gameOver = true;
-        document.getElementById("answer").innerText = word;
+        document.getElementById("answer1").innerText = word;
+        console.log(word)
     }
 }
 
@@ -132,7 +133,7 @@ function update() {
     }
 
     guess = guess.toLowerCase(); //case sensitive
-    console.log(guess);
+    
 
     if (!guessList.includes(guess)) {
         document.getElementById("answer").innerText="Not in word list";
@@ -155,7 +156,7 @@ function update() {
         }
     }
 
-    console.log(letterCount);
+    // console.log(letterCount);
 
     //first iteration, check all the correct ones first
     for (let c = 0; c < width; c++) {
@@ -180,7 +181,7 @@ function update() {
         }
     }
 
-    console.log(letterCount);
+    // console.log(letterCount);
     //go again and mark which ones are present but in wrong position
     for (let c = 0; c < width; c++) {
         let currTile = document.getElementById(row.toString() + '-' + c.toString());
