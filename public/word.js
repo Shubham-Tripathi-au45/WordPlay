@@ -29,6 +29,7 @@ function intialize() {
             // <span id="0-0" class="tile">P</span>
             let tile = document.createElement("span");
             tile.id = r.toString() + "-" + c.toString();
+            // console.log(tile.id)
             tile.classList.add("tile");
             tile.innerText = "";
             document.getElementById("board").appendChild(tile);
@@ -90,11 +91,13 @@ function processInput(e) {
     if (gameOver) return; 
 
     // alert(e.code);
+    // console.log(e.code)
     if ("KeyA" <= e.code && e.code <= "KeyZ") {
         if (col < width) {
             let currTile = document.getElementById(row.toString() + '-' + col.toString());
             if (currTile.innerText == "") {
                 currTile.innerText = e.code[3];
+                console.log(currTile)
                 col += 1;
             }
         }
@@ -132,7 +135,8 @@ function update() {
     console.log(guess);
 
     if (!guessList.includes(guess)) {
-        document.getElementById("answer").innerHTML="Not in word list";
+        document.getElementById("answer").innerText="Not in word list";
+        
         return;
     }
     
@@ -171,6 +175,7 @@ function update() {
         }
 
         if (correct == width) {
+            document.getElementsById("answer1").innerText="Well Done... Task Completed"
             gameOver = true;
         }
     }
